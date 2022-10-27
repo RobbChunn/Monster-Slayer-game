@@ -99,11 +99,13 @@ const app = Vue.createApp({
       return { width: this.playerHealth + "%" };
     },
     useSpecialAttack() {
-      return this.specialBar !== 100;
+      return this.specialBar < 100;
     },
     specialbarStyles() {
       if (this.specialBar < 0) {
         return { width: "0%" };
+      }else if (this.specialBar > 100) {
+        return { width: "100%" };
       }
       return { width: this.specialBar + "%" };
     },
